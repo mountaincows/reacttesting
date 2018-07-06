@@ -14,6 +14,7 @@ test('renders without crashing', () => {
     const store = createStore(reducers, initState);
     // use dive
     var wrapper = shallow(<App store={store}/>).dive();
+<<<<<<< HEAD
     console.log(wrapper)
     console.log(wrapper.state());
 
@@ -26,6 +27,11 @@ test('renders without crashing', () => {
 
     button.simulate('click');
     console.log(wrapper.state());
+=======
+    console.log(wrapper);
+    expect(wrapper.find('ul').length).toEqual(1);
+    // console.log(wrapper.find('ul').html());
+>>>>>>> bd76a990287fa1bcb39f37d962634c62cdd2812b
 
 });
 

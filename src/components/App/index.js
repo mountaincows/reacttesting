@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { combineReducers, createStore } from 'redux';
 import { connect } from 'react-redux';
 import TestComp from './../TestComp';
+<<<<<<< HEAD
 import FormikComp from './../FormikComp';
+=======
+>>>>>>> bd76a990287fa1bcb39f37d962634c62cdd2812b
 
 const userReducer = (state = {}, action) => {
     switch (action.type){
@@ -30,7 +33,11 @@ export const reducers = combineReducers({
     tweets: tweetsReducer
 })
 
+<<<<<<< HEAD
 export const store = createStore(reducers, {user: {name: "Nathan Sainsbury", age: 21} },window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+=======
+const store = createStore(reducers, {user: {name: "Nathan Sainsbury", age: 21} },window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+>>>>>>> bd76a990287fa1bcb39f37d962634c62cdd2812b
 
 export class App extends Component {
 
@@ -76,13 +83,20 @@ export class App extends Component {
     addAge(){
         const newAge = this.state.ageVal;
         store.dispatch({type: "ADD_AGE", payload: newAge})
+<<<<<<< HEAD
 
+=======
+>>>>>>> bd76a990287fa1bcb39f37d962634c62cdd2812b
         console.log(store.getState());
     }
 
     addTweet(){
         const newTweet = this.state.tweetVal;
         store.dispatch({type: "ADD_TWEET", payload: newTweet})
+<<<<<<< HEAD
+=======
+        console.log(store.getState());
+>>>>>>> bd76a990287fa1bcb39f37d962634c62cdd2812b
     }
 
     render() {
@@ -108,8 +122,13 @@ export class App extends Component {
                 <button onClick={this.addAge}>
                     Add Age
                 </button><br /><br />
+<<<<<<< HEAD
                 <input type="text" onChange={this.changeTweet} className='theInput' value="{this.state.tweetVal}" />
                 <button onClick={this.addTweet} className='theButton'>
+=======
+                <input type="text" onChange={this.changeTweet} value={this.state.tweetVal} />
+                <button onClick={this.addTweet}>
+>>>>>>> bd76a990287fa1bcb39f37d962634c62cdd2812b
                     Add Tweet
                 </button>
             </div>

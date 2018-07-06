@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import _ from 'lodash';
 import { Table } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -70,6 +71,14 @@ export default class extends Component{
                     </tbody>
                 </Table>
                 {this.props.children}
+=======
+
+export default class extends Component{
+    render(){
+        return(
+            <div>
+                <h1>Hello</h1>
+>>>>>>> bd76a990287fa1bcb39f37d962634c62cdd2812b
             </div>
         )
     }
