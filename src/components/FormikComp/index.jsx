@@ -11,62 +11,59 @@ export class FormikComp extends Component{
     constructor(props){
         super(props);
         this.consoleMe = this.consoleMe.bind(this);
+        this.state = {}
 
     }
 
-    consoleMe(){
-        console.log(this.state);
+    consoleMe(values){
+        this.setState({
+            values
+        })
+        console.log(this.state)
     }
 
     render(){
 
         return(
             <div>
-            <TestComp>
             <Formik
                 enableReinitialize= {true}
+                validationOnChange={true}
                 initialValues={ {
                     user_name: '',
                     user_city: '',
                 }}
                 onSubmit={(values, {}) => {
-                    console.log(values);
-                    this.setState({
-                        values
-                    })
+                    this.consoleMe(values)
                 }}
                 render= {({
                     values,
                     errors,
                     handleSubmit,
                     handleChange,
-                    touched
+                    touched,
+                    ...props
                   }) => (
                     <div>
                     <form onSubmit={handleSubmit}>
                     <label>
-                        <Field name="user_name" type="date"/>
-                        {touched.user_name && <p>{values.user_name}</p>}
+                        <Field name="user_name" type="text" id="one" onChange={handleChange} value={values.user_name}/>
+                        <p>{values.user_name}</p>
                     </label>
                     <label>
-                        <Field name="user_city" />
-                        {touched.user_city && <p>{values.user_city}</p>}
+
                     </label>
                         <Button
+                            id="three"
                             color="info"
                             type="submit"
                         >
                             Click me!
                         </Button>
-                        <Button
-                            onClick={this.consoleMe}
-                        >
-                        Do not click me!
-                        </Button>
                     </form>
                     </div>
                   )}
-            /></TestComp>
+            />
             </div>
         )
     }
